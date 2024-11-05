@@ -10,6 +10,7 @@ app.use(express.urlencoded({ extended: false }))
 
 app.use("/auth", authRouter)
 app.use("/", weddingRouter)
+
 app.use(function (err, req, res, next) {
   res.status(500).json({ message: err.message });
 } as express.ErrorRequestHandler)

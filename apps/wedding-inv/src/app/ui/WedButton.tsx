@@ -12,8 +12,8 @@ export default function WedButton({ name, disabled, onPress }: Props): JSX.Eleme
         value={name}
         className="bg-white rounded-full w-[50%] h-full focus:outline-double text-background hover:text-white text-background-invert hover:bg-inherit hover:border transition-colors duration-250"
         id={name}
-        disabled={!disabled}
-        onClick={onPress}
+        disabled={disabled}
+        onClick={() => onPress()}
       />
     </div>
   );

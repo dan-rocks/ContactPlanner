@@ -1,9 +1,10 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import WedInput from "../ui/WedInput";
 import Image from "next/image";
 import WedButton from "../ui/WedButton";
+import { SearchBoxRetrieveResponse } from "@mapbox/search-js-core";
 
 interface userInfo {
   name: string;
@@ -19,9 +20,27 @@ const RSVP = () => {
     setInfo({ ...info, [type]: e.target.value });
   };
 
-  const handleSubmit = async () => {
+  const handleAddress = (e: string): void => {
+    setInfo({ ...info, address: e })
+  }
+
+  const handleRetrieve = (res: SearchBoxRetrieveResponse) => {
+    setInfo({ ...info, address: res.features[0].properties.full_address })
+  }
+
+  const handleClear = () => {
+    setInfo({ ...info, address: "" })
+  }
+
+  useEffect(() => {
+    console.log(info)
+  }, [info])
+  
+  const handleSubmit = () => {
     setBusy(true)
-    
+    console.log(info)
+    console.log("pressed")
+    setBusy(false)
   }
 
   return (
@@ -29,9 +48,9 @@ const RSVP = () => {
       <main className="flex flex-col items-center">
         <Image src="/RSVP-NOW.png" alt="RSVP NOW" width={400} height={100} />
         <div className="flex flex-col items-center justify-center sm:w-[75%] w-full my-8">
-          <WedInput name="Name" value={name} onChange={handleInfo("name")} />
-          <WedInput name="Email" value={email} onChange={handleInfo("email")} />
-          <WedInput name="Address" value={address} onChange={handleInfo("address")} />
+          <WedInput name="Name" type="name" value={name} onChange={handleInfo("name")} />
+          <WedInput name="Email" type="email" value={email} onChange={handleInfo("email")} />
+          <WedInput name="Address" type="address" value={address} onChange={handleAddress} onRetrieve={handleRetrieve} onClear={handleClear} />
         </div>
         <WedButton name="Submit" disabled={busy} onPress={handleSubmit}/>
       </main>
