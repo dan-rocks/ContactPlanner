@@ -1,4 +1,4 @@
-import { Document, model, Schema, StringExpressionOperatorReturningBoolean } from "mongoose";
+import { Document, model, Schema } from "mongoose";
 import { hash, compare, genSalt } from "bcrypt";
 
 interface UserDocument extends Document {

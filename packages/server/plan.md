@@ -20,3 +20,13 @@ no path
   app
     patch(update-sch) receives userID and schedule and updates the schedule object that belongs to that user.
     delete(delete-sch) receives userID and deletes user's schedule object.
+
+
+
+
+wedding
+  post(/rsvp) will add their information to the database.
+    1. verify the name, email, address exist and then validate the email (because it's unique)
+    2. Verify email is unique, if not then senderrorres
+    3. if unique, add to database
+    4. send success res

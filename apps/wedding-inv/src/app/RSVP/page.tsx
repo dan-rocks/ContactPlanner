@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import WedInput from "../ui/WedInput";
 import Image from "next/image";
 import WedButton from "../ui/WedButton";
@@ -19,6 +19,11 @@ const RSVP = () => {
     setInfo({ ...info, [type]: e.target.value });
   };
 
+  const handleSubmit = async () => {
+    setBusy(true)
+    
+  }
+
   return (
     <div className="flex justify-center min-h-screen w-full sm:p-20 p-8 font-[family-name:var(--font-geist-sans)]">
       <main className="flex flex-col items-center">
@@ -28,7 +33,7 @@ const RSVP = () => {
           <WedInput name="Email" value={email} onChange={handleInfo("email")} />
           <WedInput name="Address" value={address} onChange={handleInfo("address")} />
         </div>
-        <WedButton name="Submit" disabled={busy}/>
+        <WedButton name="Submit" disabled={busy} onPress={handleSubmit}/>
       </main>
     </div>
   );

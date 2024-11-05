@@ -29,7 +29,3 @@ export const createNewUser: RequestHandler = async (req, res) => {
 
   res.send({ message: "Please check your inbox!" })
 };
-
-export const RSVP: RequestHandler = async (req, res) => {
-  
-}
