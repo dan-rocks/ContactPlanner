@@ -4,3 +4,5 @@ import { rsvp } from "src/controllers/wedding";
 const weddingRouter = Router()
 
 weddingRouter.post("/rsvp", rsvp)
+
+export default weddingRouter
