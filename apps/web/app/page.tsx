@@ -35,7 +35,7 @@ export default function Home() {
               width={20}
               height={20}
             />
-            Deploy now
+            RSVP
           </a>
           <a
             href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
@@ -43,7 +43,7 @@ export default function Home() {
             rel="noopener noreferrer"
             className={styles.secondary}
           >
-            Read our docs
+            VENMO
           </a>
         </div>
         <Button appName="web" className={styles.secondary}>
@@ -91,7 +91,7 @@ export default function Home() {
             width={16}
             height={16}
           />
-          Go to nextjs.org →
+          Button →
         </a>
       </footer>
     </div>
