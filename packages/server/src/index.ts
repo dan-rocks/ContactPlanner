@@ -2,11 +2,13 @@ import express from 'express'
 import authRouter from './routes/auth'
 import "src/db"
 import weddingRouter from './routes/wedding'
+import cors from 'cors'
 
 const app = express()
 
 app.use(express.json()) // Body parser
 app.use(express.urlencoded({ extended: false }))
+app.use(cors());
 
 app.use("/auth", authRouter)
 app.use("/", weddingRouter)

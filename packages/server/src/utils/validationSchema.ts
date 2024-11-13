@@ -21,3 +21,9 @@ export const newUserSchema = yup.object({
     .min(8, "Password should be at least 8 characters long!")
     .matches(passwordRegex, "Password is too simple!"),
 });
+
+export const RSVPSchema = yup.object({
+  name: yup.string().required("Name is missing!"),
+  email: yup.string().email("Invalid email!").required("Email is missing!"),
+  address: yup.string().required("No address!")
+})

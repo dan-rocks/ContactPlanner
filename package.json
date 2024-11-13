@@ -1,5 +1,5 @@
 {
-  "name": "ContactPlannerFive",
+  "name": "ContactPlanner",
   "private": true,
   "scripts": {
     "build": "turbo build",

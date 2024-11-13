@@ -1,27 +1,38 @@
 "use client";
 
+import React from 'react'
 import Image from "next/image";
+import { toast, ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
-const sound = new Audio("/oh.mp3");
+const darkTheme = window.matchMedia("(prefers-color-scheme: dark)").matches;
 
-export default function Home() {
+const WeddingInv: React.FC = () => {
   const oh = () => {
+    const sound = new Audio("/oh.mp3");
     setTimeout(() => sound.play(), 1500);
+
+    for (let i = 0; i <= 10; i++) {
+      setTimeout(() => {
+        toast.success("Virus downloaded!");
+      }, i * 150);
+    }
   };
 
   return (
     <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-[90vh] sm:min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
+      {darkTheme ? <ToastContainer theme="dark" /> : <ToastContainer />}
       <main className="flex flex-col gap-8 row-start-2 items-center min-h-full">
         <Image className="w-full h-auto" src="/STEADMAN-PARTY.png" alt="Next.js logo" width={280} height={38} priority />
         <div className="text-sm text-center font-[family-name:var(--font-geist-mono)]">
           <div className="mb-2">Welcome to our wedding!</div>
-          <div>If you even clicked on this you&apos;re a G.</div>
+          <div>If you clicked on this you&apos;re a G.</div>
         </div>
 
         <div className="flex flex-row gap-4 justify-between items-center w-full">
           <a
             className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5"
-            href="/RSVP"
+            href="wedding-inv/RSVP/"
             rel="noopener noreferrer"
           >
             <Image className="dark:invert" src="/vercel.svg" alt="Vercel logomark" width={20} height={20} />
@@ -61,7 +72,6 @@ export default function Home() {
           rel="noopener noreferrer"
           onClick={(e) => {
             e.preventDefault();
-            alert("USELESS BUTTON! \n\nWARNING: USELESS!!!");
             oh();
           }}
         >
@@ -70,7 +80,7 @@ export default function Home() {
         </a>
         <a
           className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
+          href="../"
           target="_blank"
           rel="noopener noreferrer"
         >
@@ -81,3 +91,5 @@ export default function Home() {
     </div>
   );
 }
+
+export default WeddingInv
