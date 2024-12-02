@@ -23,6 +23,7 @@ const Page = (): JSX.Element => {
                         <div className="w-[50%] h-auto text-wrap py-2 text-justify">{danPerspective2}</div>
                         <div className="w-[50%] h-auto text-wrap py-2 text-justify">{danPerspective3}</div>
                         <div className="w-[50%] h-auto text-wrap py-2 text-justify">{danPerspective4}</div>
+                        <div className="w-[50%] h-auto text-wrap py-2 text-justify">{danPerspective5}</div>
                     </div>
                 </div>
 			</div>
