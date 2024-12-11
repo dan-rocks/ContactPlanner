@@ -1,12 +1,13 @@
 Plan.
 Server paths:
+
 no path
-  If no path it will send the user to the website for the app that's basically an ad for it.  
-  auth
+    Nothing will happen without a path
+auth
     post(auth/new-user) Stores information then sends email verification token to user's email.
     post(auth/verify-email) This route verifies the user if they have the correct email verification token.
     get(auth/verify-token) This route generates a new email verification token and link and updates it in the database.
-    
+
     post(auth/sign-in) This route will sign the user in and the res will have tokens and their schedule object.
 
     post(auth/refresh) This route will give the user a new access token if their refresh token is fine. Removes previous refresh token.
@@ -17,16 +18,10 @@ no path
     auth/
     post(auth/verify-reset-pw) Requires userID (from searchParams), reset pw token, new password. Uses middleware to validate token schema then middleware to verify the resetPW token then updates the password in the database.
 
-  app
-    patch(update-sch) receives userID and schedule and updates the schedule object that belongs to that user.
-    delete(delete-sch) receives userID and deletes user's schedule object.
-
-
-
+dayRouter
+    createEvent: privateProcedure. Adds an event to the day. if no day, create a day and assign it to the user's schedule.
+    deleteEvent: privateProcedure. Removes an event from the day.
+scheduleRouter
 
 wedding
-  post(/rsvp) will add their information to the database.
-    1. verify the name, email, address exist and then validate the email (because it's unique)
-    2. Verify email is unique, if not then senderrorres
-    3. if unique, add to database
-    4. send success res
+    post(/rsvp) will add their information to the database. 1. verify the name, email, address exist and then validate the email (because it's unique) 2. Verify email is unique, if not then senderrorres 3. if unique, add to database 4. send success res

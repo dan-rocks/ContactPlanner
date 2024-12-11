@@ -12,7 +12,7 @@ yup.addMethod(yup.string, "email", function validateEmail(message) {
   });
 });
 
-export const newUserSchema = yup.object({
+export const signUpSchema = yup.object({
   name: yup.string().required("Name is missing!"),
   email: yup.string().email("Invalid email!").required("Email is missing!"),
   password: yup
