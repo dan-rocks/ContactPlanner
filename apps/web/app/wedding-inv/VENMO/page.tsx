@@ -1,6 +1,6 @@
 "use client";
 
-import WedButton from "@/app/ui/WedButton";
+import WedButton from "@/utils/ui/WedButton";
 import Image from "next/image";
 import { useState } from "react";
 

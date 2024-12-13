@@ -28,3 +28,5 @@ app.use(
 app.listen(3050, () => {
 	console.log("Server is running on http://localhost:3050");
 });
+
+export * from './routes'

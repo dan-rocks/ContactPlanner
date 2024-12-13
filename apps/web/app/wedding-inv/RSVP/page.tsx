@@ -1,12 +1,12 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
-import WedInput from "../../ui/WedInput";
+import WedInput from "../../../utils/ui/WedInput";
 import Image from "next/image";
-import WedButton from "../../ui/WedButton";
+import WedButton from "../../../utils/ui/WedButton";
 import { SearchBoxRetrieveResponse } from "@mapbox/search-js-core";
 import mapboxgl, { LngLatLike } from "mapbox-gl";
-import AddressInput from "../../ui/AddressInput";
+import AddressInput from "../../../utils/ui/AddressInput";
 import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { loginSchema, yupValidate } from "../../utils/validation";
@@ -30,7 +30,6 @@ const mapInit: MapInit = {
 
 const darkTheme = window.matchMedia("(prefers-color-scheme: dark)").matches;
 const accessToken = process.env.MAPBOX_ACCESS!;
-const serverURL = process.env.SERVER_URL!;
 
 const baseInfo = { name: "", email: "", address: "" }
 
