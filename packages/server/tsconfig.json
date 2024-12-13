@@ -4,6 +4,7 @@
     "jsx": "react",
     "outDir": "./dist",
     "rootDir": "./src",
+    "removeComments": true,
     "paths": {
       "src/*": ["./src/*"],
       "routes/*": ["./src/routes/*"],

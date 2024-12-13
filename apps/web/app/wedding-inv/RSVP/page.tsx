@@ -24,7 +24,7 @@ interface MapInit {
 }
 
 const mapInit: MapInit = {
-  center: [-111.971522, 41.2276],
+  center: [-112.01653207, 41.5054444436],
   zoom: 18,
 };
 
@@ -59,7 +59,7 @@ const RSVP = () => {
         mapRef.current = undefined;
       }
     };
-  }, []);
+  }, [center]);
 
   useEffect(() => {
     if (mapRef.current) {
@@ -95,7 +95,7 @@ const RSVP = () => {
     }
 
     try {
-      await axios.post(`${serverURL}/rsvp`, info)
+      await 
       setInfo(baseInfo)
       toast.success("You're on the RSVP list!")
     } catch (error) {

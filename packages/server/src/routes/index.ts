@@ -1,4 +1,4 @@
-import { trpc } from "src/lib/tRPC";
+import { trpc } from "src/lib/trpc";
 import { authRouter } from "./auth";
 import { dayRouter } from "./day";
 
