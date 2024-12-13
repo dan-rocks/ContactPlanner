@@ -1,12 +1,12 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
-import WedInput from "../../ui/WedInput";
+import WedInput from "../../../utils/ui/WedInput";
 import Image from "next/image";
-import WedButton from "../../ui/WedButton";
+import WedButton from "../../../utils/ui/WedButton";
 import { SearchBoxRetrieveResponse } from "@mapbox/search-js-core";
 import mapboxgl, { LngLatLike } from "mapbox-gl";
-import AddressInput from "../../ui/AddressInput";
+import AddressInput from "../../../utils/ui/AddressInput";
 import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { loginSchema, yupValidate } from "../../utils/validation";
@@ -24,13 +24,12 @@ interface MapInit {
 }
 
 const mapInit: MapInit = {
-  center: [-111.971522, 41.2276],
+  center: [-112.01653207, 41.5054444436],
   zoom: 18,
 };
 
 const darkTheme = window.matchMedia("(prefers-color-scheme: dark)").matches;
 const accessToken = process.env.MAPBOX_ACCESS!;
-const serverURL = process.env.SERVER_URL!;
 
 const baseInfo = { name: "", email: "", address: "" }
 
@@ -59,7 +58,7 @@ const RSVP = () => {
         mapRef.current = undefined;
       }
     };
-  }, []);
+  }, [center]);
 
   useEffect(() => {
     if (mapRef.current) {
@@ -95,7 +94,7 @@ const RSVP = () => {
     }
 
     try {
-      await axios.post(`${serverURL}/rsvp`, info)
+      await 
       setInfo(baseInfo)
       toast.success("You're on the RSVP list!")
     } catch (error) {

@@ -1,6 +1,6 @@
 import { connect } from "mongoose"
 
-const uri = 'mongodb://localhost:27017/contact-planner'
+const uri = process.env.DB_URL!
 
 connect(uri).then(() => {
   console.log('DB connected successfully')

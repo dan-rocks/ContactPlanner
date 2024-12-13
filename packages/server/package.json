@@ -1,10 +1,14 @@
 {
-  "name": "server",
+  "name": "@repo/server",
   "version": "1.0.0",
   "description": "Server for contact planner app to interact with the database to store people's schedules.",
-  "main": "index.js",
+  "main": "./src/index.ts",
+  "exports": {
+    ".": "./dist/index.js"
+  },
   "scripts": {
-    "dev": "tsnd --respawn -r tsconfig-paths/register --transpile-only ./src/index.ts",
+    "withenv": "dotenv -e ../../.env --",
+    "dev": "pnpm run withenv tsnd --respawn -r tsconfig-paths/register --transpile-only ./src/index.ts",
     "build": "tsc && tsc-alias",
     "start": "node ./dist"
   },
@@ -12,12 +16,16 @@
   "author": "Dan Steadman",
   "license": "ISC",
   "dependencies": {
+    "@trpc/client": "11.0.0-rc.660",
+    "@trpc/server": "11.0.0-rc.660",
     "bcrypt": "^5.1.1",
     "cors": "^2.8.5",
+    "dotenv": "^16.4.7",
+    "dotenv-cli": "^7.4.4",
     "express": "^4.21.1",
-    "mongoose": "^8.7.3",
+    "mongoose": "^8.8.4",
     "nodemailer": "^6.9.16",
-    "ts-node-dev": "^2.0.0",
+    "tsc-alias": "^1.8.10",
     "tsconfig-paths": "^4.2.0",
     "yup": "^1.4.0"
   },
@@ -25,6 +33,9 @@
     "@types/bcrypt": "^5.0.2",
     "@types/cors": "^2.8.17",
     "@types/express": "^5.0.0",
-    "@types/nodemailer": "^6.4.16"
+    "@types/nodemailer": "^6.4.16",
+    "ts-node": "^10.9.2",
+    "ts-node-dev": "^2.0.0",
+    "typescript": "^5.7.2"
   }
 }

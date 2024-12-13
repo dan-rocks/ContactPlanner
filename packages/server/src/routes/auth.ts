@@ -1,10 +1,10 @@
-import { Router } from "express";
-import { createNewUser } from "../controllers/auth";
-import { newUserSchema } from "src/utils/validationSchema";
-import validate from "src/utils/validator";
+import { trpc } from "src/lib/trpc";
+import { signUpSchema } from "src/utils/validationSchema";
 
-const authRouter = Router()
-
-authRouter.post('/sign-up', validate(newUserSchema), createNewUser)
-
-export default authRouter
+export const authRouter = trpc.router({
+    signUp: trpc.procedure
+    .input(signUpSchema)
+    .mutation(() => {
+        return {}
+    })
+})

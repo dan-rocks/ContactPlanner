@@ -1,10 +1,15 @@
 import { Router } from "express";
 import { rsvp } from "src/controllers/wedding";
+import { trpc } from "src/lib/trpc";
 import { RSVPSchema } from "src/utils/validationSchema";
-import validate from "src/utils/validator";
 
-const weddingRouter = Router()
+const weddingRouter = trpc.router({
+    rsvp: trpc.procedure
+    .input(RSVPSchema)
+    .mutation(({ input }) => {
+        return rsvp(input.name, input.email, input.address)
+    })
+})
 
-weddingRouter.post("/rsvp", validate(RSVPSchema), rsvp)
 
 export default weddingRouter

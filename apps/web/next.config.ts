@@ -6,9 +6,6 @@ const nextConfig: NextConfig = {
 		MAPBOX_ACCESS: process.env.MAPBOX_ACCESS,
 		SERVER_URL: process.env.SERVER_URL,
 	},
-	output: "export",
-	reactStrictMode: true,
-	// basePath: "/contactPlanner"
-};
+}
 
 export default nextConfig;
